@@ -1,0 +1,9 @@
+.page { max-width: 1100px; margin: 0 auto; padding: 48px 20px; }
+.header { margin-bottom: 28px; }
+.eyebrow { text-transform: uppercase; letter-spacing: .12em; font-size: 12px; color: var(--color-primary, #7c3aed); font-weight: 600; }
+.heading { font-size: 2rem; margin: 8px 0; }
+.sub { color: var(--color-text-muted, #6b7280); margin: 0; }
+.state { padding: 40px; text-align: center; border-radius: 16px; background: var(--color-surface, #f8fafc); color: var(--color-text-muted, #6b7280); }
+.error { color: #b91c1c; }
+.retry { margin-top: 12px; padding: 8px 18px; border-radius: 999px; border: none; background: var(--color-primary, #7c3aed); color: #fff; cursor: pointer; }
+@media (max-width: 640px) { .heading { font-size: 1.5rem; } .page { padding: 28px 16px; } }

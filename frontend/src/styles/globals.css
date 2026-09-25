@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #7C5CFF;
+  --color-primary-dark: #5B3FE0;
+  --color-coral: #FF6B5B;
+  --color-teal: #14B8A6;
+  --color-ink: #0B0B12;
+  --color-muted: #6B6B80;
+  --color-bg: #FFFFFF;
+  --color-surface-alt: #F7F6FB;
+  --color-border: #E7E5F0;
+  --gradient-header-primary: linear-gradient(135deg, #7C5CFF 0%, #FF6B5B 100%);
+  --gradient-panel-dark: linear-gradient(160deg, #15151F 0%, #0B0B12 100%);
+  --gradient-soft-surface: linear-gradient(180deg, #F7F6FB 0%, #FFFFFF 100%);
+  --radius-md: 12px;
+  --radius-lg: 16px;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: Inter, system-ui, sans-serif;
+  color: var(--color-ink);
+  background: var(--color-bg);
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4 { font-family: 'Space Grotesk', Inter, sans-serif; letter-spacing: -0.02em; }
+
+@layer components {
+  .container-page { @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8; }
+  .btn-primary { @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-brand-dark focus:outline-none focus:ring-2 focus:ring-brand/40 disabled:opacity-50; }
+  .btn-outline { @apply inline-flex items-center justify-center gap-2 rounded-full border border-line px-5 py-2.5 text-sm font-semibold text-ink transition hover:border-brand hover:text-brand; }
+  .card { @apply rounded-2xl border border-line bg-white shadow-soft; }
+  .section-title { @apply font-display text-3xl font-bold sm:text-4xl; }
+  .eyebrow { @apply text-xs font-semibold uppercase tracking-[0.2em] text-brand; }
+}

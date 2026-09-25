@@ -1,0 +1,126 @@
+[
+  {
+    "auth_required": false,
+    "method": "GET",
+    "path": "/api/health",
+    "response_shape": {
+      "status": "string"
+    },
+    "sample_body": null,
+    "sample_params": {},
+    "success_status": 200
+  },
+  {
+    "auth_required": false,
+    "method": "GET",
+    "path": "/api/showreel",
+    "response_shape": {
+      "id": "int",
+      "posterUrl": "string?",
+      "title": "string",
+      "videoUrl": "string"
+    },
+    "sample_body": null,
+    "sample_params": {},
+    "success_status": 200
+  },
+  {
+    "auth_required": false,
+    "method": "GET",
+    "path": "/api/services",
+    "response_shape": "array",
+    "sample_body": null,
+    "sample_params": {},
+    "success_status": 200
+  },
+  {
+    "auth_required": false,
+    "method": "GET",
+    "path": "/api/services/:slug",
+    "response_shape": {
+      "description": "string?",
+      "icon": "string?",
+      "id": "int",
+      "name": "string",
+      "projects": "array",
+      "slug": "string",
+      "summary": "string"
+    },
+    "sample_body": null,
+    "sample_params": {
+      "slug": "video-production"
+    },
+    "success_status": 200
+  },
+  {
+    "auth_required": false,
+    "method": "GET",
+    "path": "/api/projects",
+    "response_shape": "array",
+    "sample_body": null,
+    "sample_params": {},
+    "success_status": 200
+  },
+  {
+    "auth_required": false,
+    "method": "GET",
+    "path": "/api/projects/:slug",
+    "response_shape": {
+      "category": "string",
+      "challenge": "string?",
+      "client": "object",
+      "completedAt": "datetime?",
+      "coverImageUrl": "string",
+      "galleryUrls": "array",
+      "id": "int",
+      "results": "string?",
+      "service": "object",
+      "slug": "string",
+      "solution": "string?",
+      "summary": "string",
+      "title": "string"
+    },
+    "sample_body": null,
+    "sample_params": {
+      "slug": "northwind-launch-film"
+    },
+    "success_status": 200
+  },
+  {
+    "auth_required": false,
+    "method": "GET",
+    "path": "/api/team",
+    "response_shape": "array",
+    "sample_body": null,
+    "sample_params": {},
+    "success_status": 200
+  },
+  {
+    "auth_required": false,
+    "method": "GET",
+    "path": "/api/testimonials",
+    "response_shape": "array",
+    "sample_body": null,
+    "sample_params": {},
+    "success_status": 200
+  },
+  {
+    "auth_required": false,
+    "method": "GET",
+    "path": "/api/clients",
+    "response_shape": "array",
+    "sample_body": null,
+    "sample_params": {},
+    "success_status": 200
+  },
+  {
+    "auth_required": false,
+    "method": "GET",
+    "path": "/api/inquiries",
+    "request_body": null,
+    "response_shape": null,
+    "sample_body": null,
+    "sample_params": null,
+    "success_status": 200
+  }
+]

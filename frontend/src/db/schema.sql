@@ -1,0 +1,73 @@
+CREATE TABLE IF NOT EXISTS showreels (
+  id SERIAL PRIMARY KEY,
+  title VARCHAR(255) NOT NULL UNIQUE,
+  "videoUrl" VARCHAR(500) NOT NULL,
+  "posterUrl" VARCHAR(500),
+  "isActive" BOOLEAN NOT NULL DEFAULT TRUE
+);
+
+CREATE TABLE IF NOT EXISTS services (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(150) NOT NULL,
+  slug VARCHAR(150) NOT NULL UNIQUE,
+  summary VARCHAR(500) NOT NULL,
+  description TEXT,
+  icon VARCHAR(100),
+  "sortOrder" INTEGER NOT NULL DEFAULT 0
+);
+
+CREATE TABLE IF NOT EXISTS clients (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(150) NOT NULL UNIQUE,
+  "logoUrl" VARCHAR(500) NOT NULL,
+  "websiteUrl" VARCHAR(500),
+  "isFeatured" BOOLEAN NOT NULL DEFAULT FALSE
+);
+
+CREATE TABLE IF NOT EXISTS projects (
+  id SERIAL PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  slug VARCHAR(255) NOT NULL UNIQUE,
+  category VARCHAR(50) NOT NULL,
+  summary VARCHAR(500) NOT NULL,
+  challenge TEXT,
+  solution TEXT,
+  results TEXT,
+  "coverImageUrl" VARCHAR(500) NOT NULL,
+  "galleryUrls" JSONB,
+  "isFeatured" BOOLEAN NOT NULL DEFAULT FALSE,
+  "completedAt" TIMESTAMPTZ,
+  "clientId" INTEGER REFERENCES clients(id) ON DELETE SET NULL,
+  "serviceId" INTEGER REFERENCES services(id) ON DELETE SET NULL
+);
+
+CREATE TABLE IF NOT EXISTS team_members (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(150) NOT NULL UNIQUE,
+  role VARCHAR(150) NOT NULL,
+  bio TEXT,
+  "photoUrl" VARCHAR(500),
+  "linkedinUrl" VARCHAR(500),
+  "sortOrder" INTEGER NOT NULL DEFAULT 0
+);
+
+CREATE TABLE IF NOT EXISTS testimonials (
+  id SERIAL PRIMARY KEY,
+  quote TEXT NOT NULL,
+  "authorName" VARCHAR(150) NOT NULL UNIQUE,
+  "authorTitle" VARCHAR(150),
+  rating INTEGER,
+  "clientId" INTEGER REFERENCES clients(id) ON DELETE SET NULL
+);
+
+CREATE TABLE IF NOT EXISTS inquiries (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(150) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  company VARCHAR(150),
+  "serviceInterest" VARCHAR(150),
+  "budgetRange" VARCHAR(30),
+  message TEXT NOT NULL,
+  status VARCHAR(20) NOT NULL DEFAULT 'new',
+  "createdAt" TIMESTAMPTZ NOT NULL DEFAULT now()
+);
